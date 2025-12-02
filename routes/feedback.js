@@ -1,4 +1,4 @@
-const express = require("express");
+﻿const express = require("express");
 const sgMail = require("@sendgrid/mail");
 const router = express.Router();
 const Feedback = require("../models/Feedback");
@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
       to: email,
       from: senderEmail,
       subject: "Thank you for your feedback - Cleanify",
-      html: `<h2>Thank You for Your Feedback!</h2><p>Dear ${name},</p><p>We have received your feedback and truly appreciate you taking the time to share your thoughts with us.</p><p><strong>Your Feedback:</strong> ${feedback || "Rating submission"}</p><p>We will use this to improve Cleanify!</p><p>Best regards,<br/>Vivek </p>`
+      html: `<h2>Thank You for Your Feedback!</h2><p>Dear ${name},</p><p>We have received your feedback and truly appreciate you taking the time to share your thoughts with us.</p><p><strong>Your Feedback:</strong> ${feedback || "Rating submission"}</p><p>We will use this to improve Cleanify!</p><p>Best regards,<br/>Vivek &hearts;</p>`
     };
 
     try {
