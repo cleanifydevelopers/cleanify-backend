@@ -36,8 +36,9 @@ router.post("/", async (req, res) => {
     await newFeedback.save();
     console.log(" Feedback saved to DB:", newFeedback._id);
 
-    const senderEmail = process.env.SENDGRID_FROM_EMAIL || process.env.GMAIL_USER || "noreply@cleanify.com";
-    const adminEmail = process.env.ADMIN_EMAIL || process.env.GMAIL_USER || "admin@cleanify.com";
+    // Use verified sender email from environment
+    const senderEmail = process.env.SENDGRID_FROM_EMAIL || process.env.ADMIN_EMAIL || "cleanifydevelopers@gmail.com";
+    const adminEmail = process.env.ADMIN_EMAIL || "cleanifydevelopers@gmail.com";
 
     const adminMailOptions = {
       to: adminEmail,
@@ -54,7 +55,7 @@ router.post("/", async (req, res) => {
     };
 
     try {
-      console.log(" Sending admin email to:", adminEmail);
+      console.log(" Sending admin email to:", adminEmail, "from:", senderEmail);
       await sgMail.send(adminMailOptions);
       console.log(" Admin email sent successfully");
     } catch (adminErr) {
@@ -65,7 +66,7 @@ router.post("/", async (req, res) => {
     }
 
     try {
-      console.log(" Sending user confirmation email to:", email);
+      console.log(" Sending user confirmation email to:", email, "from:", senderEmail);
       await sgMail.send(userMailOptions);
       console.log(" User email sent successfully");
     } catch (userErr) {
