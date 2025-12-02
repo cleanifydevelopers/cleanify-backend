@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: cleanify-backend
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 4000
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        value: mongodb+srv://cleanify:vivek12@@@cleanify.730rs3q.mongodb.net/?appName=Cleanify
+      - key: GMAIL_USER
+        value: cleanifydevelopers@gmail.com
+      - key: GMAIL_PASS
+        value: vtiw clah bcet gidf
+      - key: ADMIN_EMAIL
+        value: cleanifydevelopers@gmail.com
+      - key: HOST_URL
+        value: https://cleanify-backend.onrender.com
