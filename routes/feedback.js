@@ -37,8 +37,17 @@ router.post("/", async (req, res) => {
     console.log(" Feedback saved to DB:", newFeedback._id);
 
     // Use verified sender email from environment
-    const senderEmail = process.env.SENDGRID_FROM_EMAIL || process.env.ADMIN_EMAIL || "cleanifydevelopers@gmail.com";
-    const adminEmail = process.env.ADMIN_EMAIL || "cleanifydevelopers@gmail.com";
+    // const senderEmail = process.env.SENDGRID_FROM_EMAIL || process.env.ADMIN_EMAIL || "cleanifydevelopers@gmail.com";
+    // const adminEmail = process.env.ADMIN_EMAIL || "cleanifydevelopers@gmail.com";
+    const senderEmail =
+  process.env.SENDGRID_FROM_EMAIL ||
+  process.env.ADMIN_EMAIL ||
+  "vivek@cleanifyweb.in";
+
+const adminEmail =
+  process.env.ADMIN_EMAIL ||
+  "vivek@cleanifyweb.in";
+
 
     const adminMailOptions = {
       to: adminEmail,
