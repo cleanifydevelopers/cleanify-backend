@@ -52,6 +52,7 @@ const adminEmail =
     const adminMailOptions = {
       to: adminEmail,
       from: senderEmail,
+      replyTo: email,
       subject: `New Feedback from ${name} - ${category}`,
       html: `<h2>New Feedback Received</h2><p><strong>From:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Category:</strong> ${category}</p><hr/><p><strong>Message:</strong> ${feedback || "No additional message"}</p>`
     };
@@ -59,6 +60,7 @@ const adminEmail =
     const userMailOptions = {
       to: email,
       from: senderEmail,
+      replyTo: "vivek@cleanifyweb.in",
       subject: "Thank you for your feedback - Cleanify",
       html: `<h2>Thank You for Your Feedback!</h2><p>Dear ${name},</p><p>We have received your feedback and truly appreciate you taking the time to share your thoughts with us.</p><p><strong>Your Feedback:</strong> ${feedback || "Rating submission"}</p><p>We will use this to improve Cleanify!</p><p>Best regards,<br/>Vivek &hearts;</p>`
     };
